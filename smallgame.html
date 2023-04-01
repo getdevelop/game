@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <STYLE href></STYLE>
+</head>
+<body>
+    <script>
+        let a=0;
+        let b=0;
+        let runner;
+        let cond=(player1,player2)=>
+        {
+            if(player1=="SNAKE"&&player2=="SNAKE" || player1=="WATER" &&player2=="WATER" || player1=="GUN" &&player2=="GUN" )
+            {
+                console.log("no player win in this chance")
+            }
+            // else if( player1=="WATER" &&player2=="WATER" )
+            // {
+            //     console.log("no player win in this chance")
+
+            // }
+            // else if( player1=="GUN" &&player2=="GUN" )
+            // {
+            //     console.log("no player win in this chance")
+            // }
+            
+             else if(player1=="SNAKE" && player2=="WATER"||player1=="GUN" && player2=="SNAKE"||player1=="WATER" && player2=="GUN")
+            {
+               console.log("player 1 wins");
+                a++;
+                console.log(a,b)
+                            
+            }
+                
+              else if(player1=="WATER" && player2=="SNAKE"||player1=="SNAKE" && player2=="GUN"||player1=="GUN" && player2=="WATER")
+                  {
+                    console.log("player2 wins")
+                    b++
+                    console.log(a,b)
+                }
+            //   else if(player1=="SNAKE" && player2=="GUN")
+            //     {
+            //         console.log("player2 wins");
+            //         b++;
+            //         console.log(a,b)
+                
+            //     }
+            //    else if(player1=="GUN" && player2=="SNAKE")
+            //     {
+            //         console.log("player1 wins");
+            //         a++;
+            //         console.log(a,b)
+            //     }
+            //   else if(player1=="WATER" && player2=="GUN")
+            //     {
+            //         console.log("player1 wins")
+            //         a++;
+            //         console.log(a,b)
+
+            // //     }
+            //  else if(player1=="GUN" && player2=="WATER")
+            //     {
+            //         console.log("player2 wins")
+            //         b++;
+            //         console.log(a,b)           
+            //     }
+                
+        }
+        console.log("player 1 score is",a);
+        console.log("player 2 score is",b);  
+    
+     let   obj={
+            first:"SNAKE",second:"GUN",third:"WATER"
+        }  
+        
+    for(let chances=1;chances<=5;chances++)
+    {
+        let player1=obj[Object.keys(obj)[Math.floor(Math.random()*Object.keys(obj).length)]] //used to generate the random values from object
+             console.log("for player1 the random value generator generated ",player1)
+             let player2=   obj[Object.keys(obj)[Math.floor(Math.random()*Object.keys(obj).length)]]
+             console.log("for player2 the random generator value generated ",player2)
+
+        if(player1!=player2 || player1==player2)
+             {
+                console.log("LET'S GO.......")
+             
+              let b= cond(player1,player2)
+               console.log(b);
+
+             }
+             console.log("out of 5 chances ",chances,"completed")
+             
+}
+        if(a>b)
+             {
+                console.log("PLAYER1 Won the game...............:)/")
+                console.log("PLAYER2 BETTER LUCK NEXT TIME ........:)/")
+             }
+        else if(a==b){
+             console.log("both win")
+
+             }
+        else
+             {
+                console.log("PLAYER2 Won the Game...............:)/")
+                console.log("PLAYER1 BETTER LUCK NEXT TIME ........:)/")
+             }   
+             
+
+        </script>
+    
+</body>
+</html>
